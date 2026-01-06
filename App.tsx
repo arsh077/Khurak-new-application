@@ -132,6 +132,14 @@ const App: React.FC = () => {
       navigateTo('dashboard');
   };
 
+  // Quick burn from dashboard side ops
+  const handleQuickBurn = (calories: number) => {
+      setDailyLog(prev => ({
+          ...prev,
+          exerciseCalories: prev.exerciseCalories + calories
+      }));
+  };
+
   const handleUpdateWater = (amount: number) => {
     setDailyLog(prev => ({
         ...prev,
@@ -179,7 +187,7 @@ const App: React.FC = () => {
         case 'success': return <SuccessStories />;
         case 'profile-setup': return <Onboarding onComplete={handleOnboardingComplete} />;
         case 'dashboard': 
-            return isLoggedIn && profile ? <Dashboard profile={profile} log={dailyLog} onUpdateWater={handleUpdateWater} /> : <Hero onStart={handleStart} />;
+            return isLoggedIn && profile ? <Dashboard profile={profile} log={dailyLog} onUpdateWater={handleUpdateWater} onQuickBurn={handleQuickBurn} /> : <Hero onStart={handleStart} />;
         case 'logger':
             return <FoodLogger onLogFood={handleLogFood} remainingCalories={remainingCalories} />;
         case 'chat':
