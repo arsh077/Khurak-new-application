@@ -1,0 +1,8 @@
+{
+  "name": "Copy of KHURAK",
+  "description": "A holistic weight-loss platform combining AI-driven nutrition, personalized meal planning, and behavioral support tailored for the Indian context.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
